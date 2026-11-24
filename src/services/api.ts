@@ -1,4 +1,6 @@
-const sizes = [
+import { Size, Category, Product, ProductColor } from "@/types";
+
+const sizes: Size[] = [
   { id: 1, name: "XS", number: 44 },
   { id: 2, name: "S", number: 46 },
   { id: 3, name: "M", number: 48 },
@@ -7,14 +9,14 @@ const sizes = [
   { id: 6, name: "XXL", number: 54 },
 ];
 
-const categories = [
+const categories: Category[] = [
   { id: 1, name: "Верхняя одежда" },
   { id: 2, name: "Нижняя одежда" },
   { id: 3, name: "Спорт" },
   { id: 4, name: "Аксессуары" },
 ];
 
-const products = [
+const products: Product[] = [
   {
     id: 1,
     name: "Футболка",
@@ -201,13 +203,13 @@ const products = [
   },
 ];
 
-function getSizes() {
+function getSizes(): Promise<Size[]> {
   return new Promise((resolve) => {
     setTimeout(() => resolve(sizes), 250);
   });
 }
 
-function getSize(id) {
+function getSize(id: number): Promise<Size> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const size = sizes.find((size) => String(size.id) === String(id));
@@ -220,13 +222,13 @@ function getSize(id) {
   });
 }
 
-function getCategories() {
+function getCategories(): Promise<Category[]> {
   return new Promise((resolve) => {
     setTimeout(() => resolve(categories), 250);
   });
 }
 
-function getCategory(id) {
+function getCategory(id: number): Promise<Category> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const category = categories.find(
@@ -241,13 +243,13 @@ function getCategory(id) {
   });
 }
 
-function getProducts() {
+function getProducts(): Promise<Product[]> {
   return new Promise((resolve) => {
     setTimeout(() => resolve(products), 250);
   });
 }
 
-function getProduct(id) {
+function getProduct(id: number): Promise<Product> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const product = products.find(
@@ -262,7 +264,7 @@ function getProduct(id) {
   });
 }
 
-function getProductColor(productID, colorID) {
+function getProductColor(productID: number, colorID: number): Promise<ProductColor> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const product = products.find(
